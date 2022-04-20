@@ -35,6 +35,4 @@ class BinaryPreOrder {
     }
 }
 
-class BinaryPreOrderTraversal {
 
-}
