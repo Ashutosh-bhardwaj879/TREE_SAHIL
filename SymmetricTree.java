@@ -18,7 +18,7 @@
  * !watch carefully calls are for left and right nodes
  * ?https://leetcode.com/problems/symmetric-tree/
  */
-class SysmmetricTree {
+class SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
         return isSameTree(root.left, root.right);
     }
