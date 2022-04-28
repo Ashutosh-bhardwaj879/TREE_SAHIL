@@ -1,0 +1,52 @@
+import java.util.*;
+
+// !https://leetcode.com/problems/n-ary-tree-preorder-traversal/submissions/
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {
+    }
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+
+class Solution {
+    public List<Integer> preorder(Node root) {
+        List<Integer> ans = new ArrayList<>();
+        Stack<Node> st = new Stack<>();
+
+        if (root == null)
+            return ans;
+
+        // pushing root
+        st.push(root);
+
+        // while stack is not empty
+        while (!st.isEmpty()) {
+            // pop top element
+            Node currentNode = st.pop();
+            // push val of poped element
+            ans.add(currentNode.val);
+
+            List<Node> children = currentNode.children;
+
+            for (int i = children.size() - 1; i >= 0; i--) {
+                Node currentChild = children.get(i);
+                st.push(currentChild);
+            }
+            // !SC - O(h) -- hiehght of binary tree
+            // * TC - o(n)
+        }
+
+        return ans;
+    }
+}
